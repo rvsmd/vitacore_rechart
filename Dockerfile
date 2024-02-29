@@ -1,14 +1,7 @@
-# build stage
-FROM node:16.20.0-alpine as installer
+FROM node:16-alpine
+RUN mkdir /app
 WORKDIR /app
-COPY package.json /app/package.json
-RUN npm install
+COPY package.json /app
+RUN npm install --legacy-peer-deps
 COPY . /app
-
-FROM installer as build
-RUN npm run build
-
-FROM nginx:1.24.0-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
