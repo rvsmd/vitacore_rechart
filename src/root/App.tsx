@@ -1,11 +1,12 @@
 import React from 'react';
-import Main from '../components/views/Main';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from '../../src/router';
 
 const App: React.FC = () => {
     return (
-        <>
-            <Main />
-        </>
+        <BrowserRouter>
+            <AppRouter />
+        </BrowserRouter>
     );
 };
 

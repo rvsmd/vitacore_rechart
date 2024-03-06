@@ -32,7 +32,7 @@ const BDatepicker = (props: IBDatepicker) => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', ...style }}>
-            <label>{label}</label>
+            <label style={{ marginBottom: 5 }}>{label}</label>
             <DatePicker
                 renderCustomHeader={({
                     date,
@@ -66,10 +66,9 @@ const BDatepicker = (props: IBDatepicker) => {
 								</option>
 							))}
 						</select>
-						{/* eslint-enable */}
                         <select
                             value={months[getMonth(date)]}
-                            onChange={({ target: { value } }) => changeMonth(months.indexOf(value))}
+                            onChange={({ target: { value } }: { target: { value: any } }) => changeMonth(months.indexOf(value))}
                         >
                             {months.map((option) => (
                                 <option key={option} value={option}>
@@ -77,12 +76,14 @@ const BDatepicker = (props: IBDatepicker) => {
                                 </option>
                             ))}
                         </select>
+						{/* eslint-enable */}
                         <button disabled={nextMonthButtonDisabled} onClick={increaseMonth}>
                             {'>'}
                         </button>
                     </div>
                 )}
                 selected={date}
+                calendarStartDay={1}
                 onChange={(date: Date) => setDate(date)}
             />
         </div>

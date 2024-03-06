@@ -56,7 +56,7 @@ const Main = () => {
         ).length;
     };
 
-    const confirm = () => {
+    const confirmData = () => {
         setChartData([
             { name: CharactersHouse.GRYFFINDOR, value: getNumberFilterCharacters(CharactersHouse.GRYFFINDOR) },
             { name: CharactersHouse.SLYTHERIN, value: getNumberFilterCharacters(CharactersHouse.SLYTHERIN) },
@@ -75,12 +75,12 @@ const Main = () => {
                 <h2>Дата рождения</h2>
                 <BDatepicker label='С' date={startDate} setDate={setStartDate} />
                 <BDatepicker label='По' date={endDate} setDate={setEndDate} />
-                <button style={{ height: 30, width: 100 }} onClick={confirm}>
+                <button style={{ height: 30, width: 100 }} onClick={confirmData}>
                     Подтвердить
                 </button>
             </div>
-            <div style={{ height: 300, width: 400 }}>
-                <PieChartDiagram data={chartData} />
+            <div style={{ height: 400, width: 400 }}>
+                <PieChartDiagram data={chartData} width={400} height={400} />
             </div>
         </div>
     );

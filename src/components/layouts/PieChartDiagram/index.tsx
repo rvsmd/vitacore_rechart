@@ -2,17 +2,19 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 interface IPieChartProps {
+    width: number;
+    height: number;
     data: { name: string; value: number }[] | [];
 }
 
 const PieChartDiagram = (props: IPieChartProps) => {
-    const { data } = props;
+    const { width, height, data } = props;
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     return (
         <ResponsiveContainer width='100%' height='100%'>
-            <PieChart width={400} height={400}>
+            <PieChart width={width} height={height}>
                 <Pie
                     label
                     data={data}
